@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="images/favicon.png" rel="shortcut icon" type="image/x-icon" />
+<META NAME="robots" CONTENT="noindex,nofollow">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+	<link href="css/ashirbad-style.css" type="text/css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+	<script src="https://kit.fontawesome.com/dc60c7dcd0.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="css/owl.carousel.min.css" />
+	<link rel="stylesheet" href="css/owl.theme.min.css" />
+	<link rel="stylesheet" href="css/slick.css" />
+	<link rel="stylesheet" href="css/slick-theme.css" />
+    
+    <title>Ashirbad Paints</title>
+  </head>
+  <body>
+    <div id="root"></div>
+	  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+    <script>
+    $(document).ready(function(){ 
+        $(window).scroll(function(){ 
+            if ($(this).scrollTop() > 100) { 
+                $('#scroll').fadeIn(); 
+            } else { 
+                $('#scroll').fadeOut(); 
+            } 
+        }); 
+        $('#scroll').click(function(){ 
+            $("html, body").animate({ scrollTop: 0 }, 600); 
+            return false; 
+        }); 
+    });
+    </script>
+    
+    <script type="text/javascript" src="js/vanilla-tilt.js"></script>
+    <script type="text/javascript">
+      
+      VanillaTilt.init(document.querySelector(".tool-col-1"), {
+        max: 25,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.5,
+      });
+      
+      //It also supports NodeList
+      VanillaTilt.init(document.querySelectorAll(".tool-col-1"));
+      
+        VanillaTilt.init(document.querySelector(".tool-col-2"), {
+        max: 25,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.5,
+      });
+      
+      //It also supports NodeList
+      VanillaTilt.init(document.querySelectorAll(".tool-col-2"));
+      
+        VanillaTilt.init(document.querySelector(".tool-col-3"), {
+        max: 25,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.5,
+      });
+      
+      //It also supports NodeList
+      VanillaTilt.init(document.querySelectorAll(".tool-col-3"));
+      
+        VanillaTilt.init(document.querySelector(".tool-col-4"), {
+        max: 25,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.5,
+      });
+      
+      //It also supports NodeList
+      VanillaTilt.init(document.querySelectorAll(".tool-col-4"));
+        
+    </script>
+    
+    <script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="js/owl.carousel.min.js"></script>
+     
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#testimonial-slider").owlCarousel({
+        items:1,
+            itemsDesktop:[1000,1],
+            itemsDesktopSmall:[979,1],
+            itemsTablet:[768,1],
+            margin:10,
+            pagination:false,
+            //navigation:true,
+    //        navigationText:["",""],
+            autoPlay:true,
+        });
+    });</script>
+    <script src="js/slick.js" type="text/javascript" charset="utf-8"></script>
+      <script type="text/javascript">
+        $(document).on('ready', function() {
+          $(".regular").slick({
+            dots: false,
+            infinite: true,
+            slidesToShow: 5,
+            slidesToScroll: 1
+          });
+        });
+    </script>
+      
+      
+    <script type="text/javascript">	
+      $('.responsive').slick({
+      dots: false,
+      infinite: true,
+      speed: 300,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        },
+       {
+          breakpoint: 415,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+    </script>
+      <link rel="stylesheet" type="text/css" href="css/jquery.lightbox.css" />
+       <script src="js/jquery.lightbox.js"></script>
+     <script>
+      // Initiate Lightbox
+      $(function() {
+        $('.thumbsize a').lightbox(); 
+      });
+    </script>
+  </body>
+</html>
