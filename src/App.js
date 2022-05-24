@@ -13,7 +13,7 @@ import Form from './pages/Form';
 
 function App()
 {
-  global.url = "https://adminpanel.krity.com.np/";
+  global.url = "http://localhost/reactadminpanel/";
   return (
     <div className="App">
 <Navigation /> 

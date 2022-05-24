@@ -1,83 +1,81 @@
 import React from 'react'
 import axios from 'axios';
 import {useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
 
 function Home() {
 
-    const [post, setPost] = useState(null);
+  /// API CALL STARTS HERE
+  const [post, setPost] = useState(null); /// Initialize the state
 
   useEffect(() => {
-    axios.get('https://adminpanel.krity.com.np/api/welcome').then(response => {
+    axios.get(global.url+'api/welcome').then(response => {
       setPost(response.data);
     });
   }, []);
 
   if (!post) return null;
 
-  console.log(post);
   return(
     
     <div>
-      <section className="slider-banner">
-    <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
-      <div className="carousel-indicators">
-                  
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"  
-        className="active" aria-current="true"  aria-label="Slide 1"></button>
-                
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"  aria-label="Slide 2"></button>
-                
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"  aria-label="Slide 3"></button>
-                
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"  aria-label="Slide 4"></button>
-            
-      </div>
-      <div className="carousel-inner">
-            
-      <div className="carousel-item  active  ">
-          <img src="images/slider/ashirbad-paints-slider-1.jpg" className="d-block w-100" alt="Banner 01" />
-        </div>
-           
-      <div className="carousel-item  ">
-          <img src="images/slider/bg.jpg" className="d-block w-100" alt="Banner 02" />
-        </div>
-            
-      </div>
-      <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Previous</span>
-      </button>
-      <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Next</span>
-      </button>
-    </div>
-    </section>     
-     
-       <section className="welcome">
-         <div className="container">
-         <div className="row d-flex justify-content-between align-items-center">
-           <div className="col-lg-5 col-md-6">
-             
-           <div className="welcome-img">
-           <img src={global.url+"uploads/homepage/"+post.image_title} alt=""/>
-             </div>
-             
-           </div>
-           <div className="col-lg-7 col-md-6">
-             <div className="welcome-txt">
-                                     
-               <h1>{ post.title }</h1>
-               
-               { post.content }
-              
-             </div>
-           </div>
-         </div>
-         </div>
-       </section>
-       
-    
+
+<section class="slider-banner">
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+
+  <div class="carousel-inner">
+	 	   
+  {
+     post[1].data.map((banner_image, index) => (
+   
+       <div key={`uui-${index}`} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
+        <img src={global.url+'uploads/banner/'+banner_image.image_title} className="d-block w-100" alt="" />
+       </div>
+
+     ))
+  }
+		  	
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</section>
+
+        {/* Welcome Starts From Here */}
+<section class="welcome">
+		  <div class="container">
+		  <div class="row d-flex justify-content-between align-items-center">
+			  <div class="col-lg-5 col-md-6">
+				  
+			  <div class="welcome-img">
+				  <img src={global.url+'uploads/homepage/'+post[0][0].image_title} alt=""/>
+				  </div>
+				  
+			  </div>
+			  <div class="col-lg-7 col-md-6">
+				  <div class="welcome-txt">
+					  <h1>{ post[0].title }</h1>
+
+            <div dangerouslySetInnerHTML={{__html:post[0][0].content}} ></div>
+
+					  <Link to="/about" class="btn btn-outline-primary" role="button">
+              <i class="fas fa-align-justify"></i> Read More
+            </Link>
+				  </div>
+			  </div>
+		  </div>
+		  </div>
+	  </section>
+
+    {/* Welcome Ends From Here */}
+
+
 <section className="color-tools">
 <div className="container">
 <div className="row">
@@ -137,12 +135,12 @@ function Home() {
              <div className="features-txt">
                <h1>Excellent &<br/>
                Durable Quality!</h1>
-               <p><strong>Shades that lend life to the walls and make them look natural and fresh are excellent for your dream home.</strong></p>
+               <div dangerouslySetInnerHTML={{__html:post[0][1].content}} ></div>
              </div>
            </div>
            <div className="col-lg-7 col-md-6">
            <div className="features-img">
-             <img src="images/features-ashirbad-paints.png" alt=""/>
+           <img src={global.url+"uploads/homepage/"+post[0][1].image_title} alt='' />
              </div>
            </div>
            
@@ -156,15 +154,15 @@ function Home() {
          <div className="row d-flex justify-content-between align-items-center">
            <div className="col-lg-5 col-md-6">
            <div className="products-home-img">
-             <img src="images/products-ashirbad-paints.png" alt=""/>
+           <img src={global.url+"uploads/homepage/"+post[0][2].image_title} alt='' />
              </div>
            </div>
            <div className="col-lg-7 col-md-6">
              <div className="products-home-txt">
                <h1>Explore<br/>
                Our Products</h1>
-      <p><strong>Our extensive product line has been carefully crafted to meet your needs in every manner.</strong></p>
-               {/* <a href="#" className="btn btn-outline-primary" role="button"><i className="fas fa-search"></i> Explore More</a> */}
+               <div dangerouslySetInnerHTML={{__html:post[0][2].content}} ></div>
+               <Link to="ff" className="btn btn-outline-primary" role="button" ><i className="fas fa-search"></i> Explore More</Link>
              </div>
            </div>
          </div>
@@ -179,7 +177,7 @@ function Home() {
              <div className="products-range-txt">
                <h1>Our Products<br/>
                 Range</h1>
-      <p><strong>Choose a shade from our wide range of products and shades that suits best for your dream house.</strong></p>
+                <div dangerouslySetInnerHTML={{__html:post[0][4].content}} ></div>
              </div>
            </div>
          <div className="col-lg-7 col-md-6">

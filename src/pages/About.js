@@ -9,8 +9,8 @@ const About=()=> {
     const [post, setPost] = useState(null);
 
   useEffect(() => {
-    axios.get(global.url+'api/getapi').then(response => {
-      setPost(response.data);
+    axios.get(global.url+'api/welcome').then(response => {
+		setPost(response.data);
     });
   }, []);
 
@@ -19,13 +19,13 @@ const About=()=> {
   console.log(post);
 
   return (
-    <div>
+    <>
 
-    <section class="content-page-wrapper">
+<section class="content-page-wrapper">
 	<div class="heading-blocks">
 		<div class="virtual-paints">
 		<div class="container">
-			<h1>Who We Are ?</h1>			
+			<h1>Who We Are ?</h1>
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><Link to="/"><i class="fas fa-home" aria-hidden="true"></i></Link></li>
@@ -41,20 +41,19 @@ const About=()=> {
 	  <div class="row">
 		  <div class="col-lg-6">
 				<center>
-				<div class="about-logo">
-					<img src="images/ashirbad-paints-logo.png" alt=""/></div>
+				<div class="about-logo"><img src="images/ashirbad-paints-logo.png" alt=""/></div>
 				</center>
-				<h2>{ post.title }</h2>
+				<h2>{ post[0][3].title }</h2>
 			  <h3>Ashirbad rapidly grew in popularity and scope, eventually becoming the most well-known paint brand in the country. After barely ten years of operation, it has become a household name.</h3>
 	    </div>
 		  <div class="col-lg-6">
-		<div dangerouslySetInnerHTML={{__html:post.content}} ></div>
-		  
+		  <div dangerouslySetInnerHTML={{__html:post[0][3].content}} ></div>
 		  </div>
-		  asa
+		  
 		  <div class="col-lg-12 mt-4">			  
 	      <div class="map">
-			  <img src={global.url+"uploads/homepage/"+post.image_title} alt={ global.url }/></div>
+		  <img src={global.url+"uploads/homepage/"+post[0][3].image_title} alt='' />
+		  </div>
 		  </div>
 	  </div>
 	  </div>
@@ -62,7 +61,10 @@ const About=()=> {
     </div>
 	</div>	
 </section>
-    </div>
+
+
+
+    </>
   )
 }
 
